@@ -1,0 +1,11 @@
+git add .
+git commit -m '这是注释'
+git push
+git push origin master/dev
+git push origin --tags
+git status 查看所在的分支
+git tag
+git tag -a v1.0.0 -m '这是版本的注释' 创建标签
+git tag -d v1.0.0 本地删除版本
+git push origin :refs/tags/v1.0.0 删除远程仓库的版本
+

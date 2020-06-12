@@ -1,0 +1,8 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://101.37.14.235:33306/shop?characterEncoding=utf-8&useSSL=false
+    password: 123456
+    username: root
+  jpa:
+    show-sql: true

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+    <appender name="consoleLog" class="ch.qos.logback.core.ConsoleAppender">
+
+    </appender>
+
+    <root level="info">
+        <appender-ref ref="" />
+    </root>
+</configuration>

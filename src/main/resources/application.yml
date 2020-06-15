@@ -6,3 +6,5 @@ spring:
     username: root
   jpa:
     show-sql: true
+server:
+  context-path: /sell

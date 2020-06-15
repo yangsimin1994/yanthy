@@ -30,4 +30,6 @@ public class ProductInfo {
 
     /**小图*/
     private String productIcon;
+
+    private Integer productStatus;
 }

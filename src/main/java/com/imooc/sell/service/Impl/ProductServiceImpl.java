@@ -42,7 +42,19 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public void inceaseStock(List<CartDTO> cartDTOList) {
+        for (CartDTO cartDTO : cartDTOList) {
+            ProductInfo productInfo = productInfoDao.findOne(cartDTO.getProductId());
+            if (productInfo == null){
+                throw new SellException(ResultEnum.PRODUCT_NOT_EXIST);
+            }
 
+            Integer number = productInfo.getProductStock() - cartDTO.getProductQuantity();
+            if (number<0){
+                throw new SellException(ResultEnum.PRODUCT_STOCK_ERROR);
+            }
+            productInfo.setProductStock(number);
+            productInfoDao.save(productInfo);
+        }
     }
 
     @Override
@@ -50,7 +62,7 @@ public class ProductServiceImpl implements ProductService {
         for (CartDTO cartDTO : cartDTOList) {
             ProductInfo productInfo = productInfoDao.findOne(cartDTO.getProductId());
             if (productInfo == null){
-                throw new SellException(ResultEnum.PRODUCT_BOT_EXIST);
+                throw new SellException(ResultEnum.PRODUCT_NOT_EXIST);
             }
 
             Integer number = productInfo.getProductStock() - cartDTO.getProductQuantity();
